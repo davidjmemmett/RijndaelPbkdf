@@ -330,7 +330,7 @@ class rijndael:
             result.append((Si[(t[(i + s1) % BC] >> 16) & 0xFF] ^ (tt >> 16)) & 0xFF)
             result.append((Si[(t[(i + s2) % BC] >>  8) & 0xFF] ^ (tt >>  8)) & 0xFF)
             result.append((Si[ t[(i + s3) % BC]        & 0xFF] ^  tt       ) & 0xFF)
-        return ''.join(map(chr, result)).encode('ASCII')
+        return ''.join(map(chr, result)).encode('utf8')
 
 def encrypt(key, block):
     return rijndael(key, len(block)).encrypt(block)
